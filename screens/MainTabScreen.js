@@ -25,7 +25,7 @@ const HomeStack = createStackNavigator();
 const NotificationStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
 const RepoStack = createStackNavigator();
-const MonitoringStack = createStackNavigator();
+
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -189,7 +189,7 @@ const NotificationStackScreen = ({navigation}) => {
         name="Notification"
         component={NotificationScreen}
         options={{
-          title: '',
+          title: 'Notification',
           headerLeft: () => (
             <View style={{marginLeft: 10}}>
               <Icon.Button
@@ -201,8 +201,51 @@ const NotificationStackScreen = ({navigation}) => {
               />
             </View>
           ),
+          headerRight: () => (
+            <View style={{flexDirection: 'row', marginRight: 10}}>
+              <Icon.Button
+                name="ios-search"
+                size={25}
+                color={colors.text}
+                backgroundColor={colors.background}
+                onPress={() => {}}
+              />
+              <TouchableOpacity
+                style={{paddingHorizontal: 10, marginTop: 5}}
+                onPress={() => {
+                  navigation.navigate('Profile');
+                }}>
+                <Avatar.Image
+                  source={{
+                    uri:
+                      'https://api.adorable.io/avatars/80/abott@adorable.png',
+                  }}
+                  size={30}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
          
         }}
+      />
+       <NotificationStack.Screen 
+        name="CardListScreen"
+        component={CardListScreen}
+        options={({route}) => ({
+          title: route.params.title,
+          headerBackTitleVisible: false
+        })}
+      />
+      <NotificationStack.Screen 
+        name="CardItemDetails"
+        component={CardItemDetails}
+        options={({route}) => ({
+          // title: route.params.title,
+          headerBackTitleVisible: false,
+          headerTitle: false,
+          headerTransparent: true,
+          headerTintColor: '#fff'
+        })}
       />
     
     </NotificationStack.Navigator>
@@ -226,7 +269,7 @@ const ProfileStackScreen = ({navigation}) => {
         name="Profile"
         component={ProfileScreen}
         options={{
-          title: '',
+          title: 'User Profile',
           headerLeft: () => (
             <View style={{marginLeft: 10}}>
               <Icon.Button
@@ -278,7 +321,7 @@ const ProfileStackScreen = ({navigation}) => {
           name="Repo"
           component={Repository}
           options={{
-            title: '',
+            title: 'Repository',
             headerLeft: () => (
               <View style={{marginLeft: 10}}>
                 <Icon.Button
@@ -288,6 +331,49 @@ const ProfileStackScreen = ({navigation}) => {
                   color={colors.text}
                   onPress={() => navigation.openDrawer()}
                 />
+              </View>
+            ),
+            headerRight: () => (
+              <View style={{flexDirection: 'row', marginRight: 10}}>
+                <Icon.Button
+                  name="ios-search"
+                  size={25}
+                  color={colors.text}
+                  backgroundColor={colors.background}
+                  onPress={() => {}}
+                />
+                <TouchableOpacity
+                  style={{paddingHorizontal: 10, marginTop: 5}}
+                  onPress={() => {
+                    navigation.navigate('Profile');
+                  }}>
+                  <Avatar.Image
+                    source={{
+                      uri:
+                        'https://api.adorable.io/avatars/80/abott@adorable.png',
+                    }}
+                    size={30}
+                  />
+                  <RepoStack.Screen 
+                  name="CardListScreen"
+                  component={CardListScreen}
+                  options={({route}) => ({
+                    title: route.params.title,
+                    headerBackTitleVisible: false
+                  })}
+                />
+                <RepoStack.Screen 
+                  name="CardItemDetails"
+                  component={CardItemDetails}
+                  options={({route}) => ({
+                    // title: route.params.title,
+                    headerBackTitleVisible: false,
+                    headerTitle: false,
+                    headerTransparent: true,
+                    headerTintColor: '#fff'
+                  })}
+                />
+                </TouchableOpacity>
               </View>
             ),
           

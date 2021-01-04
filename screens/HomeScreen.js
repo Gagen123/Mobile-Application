@@ -65,7 +65,7 @@ const HomeScreen = ({navigation}) => {
 
         <TouchableOpacity style={styles.categoryBtn} onPress={() => {}}>
           <View style={styles.categoryIcon}>
-            <Ionicons name="share" size={35} color="#FF6347" />
+          <Fontisto name="home" size={35} color="#FF6347" />
           </View>
           <Text style={styles.categoryBtnTxt}>Attendance</Text>
         </TouchableOpacity>
@@ -73,9 +73,9 @@ const HomeScreen = ({navigation}) => {
         <TouchableOpacity style={styles.categoryBtn} onPress={() => navigation.navigate('MonitoringTools')
       }>
           <View style={styles.categoryIcon}>
-            <MaterialIcons name="" size={35} color="#FF6347" />
+            <Fontisto name="home" size={35} color="#FF6347" />
           </View>
-          <Text style={styles.categoryBtnTxt}>Repository</Text>
+          <Text style={styles.categoryBtnTxt}>Monitoring</Text>
         </TouchableOpacity>
       </View>
         <Text

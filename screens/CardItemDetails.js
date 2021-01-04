@@ -13,8 +13,6 @@ import HeaderImageScrollView, {
 } from 'react-native-image-header-scroll-view';
 
 import * as Animatable from 'react-native-animatable';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const MIN_HEIGHT = Platform.OS === 'ios' ? 90 : 55;
 const MAX_HEIGHT = 350;
@@ -51,9 +49,8 @@ const CardItemDetails = ({route}) => {
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={styles.title}>Overview</Text>
             <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
-              <FontAwesome name="star" size={16} color="#FF6347" />
-              <Text style={{marginHorizontal: 2}}>{itemData.rating}</Text>
-              <Text>({itemData.reviews})</Text>
+           
+             
             </View>
           </View>
         </TriggeringView>
@@ -62,32 +59,9 @@ const CardItemDetails = ({route}) => {
         </View>
 
         <View style={styles.section}>
-          <View style={styles.categories}>
-            {itemData.categories.map((category, index) => (
-              <View style={styles.categoryContainer} key={index}>
-                <FontAwesome name="tag" size={16} color="#fff" />
-                <Text style={styles.category}>{category}</Text>
-              </View>
-            ))}
-          </View>
+     
         </View>
 
-        <View style={[styles.section, {height: 250}]}>
-          <MapView
-            provider={PROVIDER_GOOGLE}
-            style={{flex: 1}}
-            region={{
-              latitude: itemData.coordinate.latitude,
-              longitude: itemData.coordinate.longitude,
-              latitudeDelta: 0.00864195044303443,
-              longitudeDelta: 0.000142817690068,
-            }}>
-            <MapView.Marker
-              coordinate={itemData.coordinate}
-              image={require('../assets/map_marker.png')}
-            />
-          </MapView>
-        </View>
       </HeaderImageScrollView>
     </View>
   );
@@ -131,19 +105,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     flexWrap: 'wrap',
   },
-  categoryContainer: {
-    flexDirection: 'row',
-    backgroundColor: '#FF6347',
-    borderRadius: 20,
-    margin: 10,
-    padding: 10,
-    paddingHorizontal: 15,
-  },
-  category: {
-    fontSize: 14,
-    color: '#fff',
-    marginLeft: 10,
-  },
+ 
   titleContainer: {
     flex: 1,
     alignSelf: 'stretch',

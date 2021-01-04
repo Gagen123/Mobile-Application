@@ -1,117 +1,113 @@
-import React from 'react'
-import { Button, Alert, StyleSheet, Text, View } from 'react-native'
-import Form from 'react-native-advanced-forms'
+import React from 'react';
+import {
+  ActionsContainer,
+  Button,
+  FieldsContainer,
+  Fieldset,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Select,
+  Switch,
+  StyleSheet
+ 
 
-export default class App extends React.Component {
-  constructor (props, ctx) {
-    super(props, ctx)
+} from 'react-native-clean-form'
 
-    this.state = {
-      firstName: null,
-      lastName: null,
-      age: null,
-      country: null,
-    }
-  }
+const countryOptions = [
+  {label: 'Bhutan', value: 'DK'},
+  {label: 'Denmark', value: 'DK'},
+  {label: 'Germany', value: 'DE'},
+  {label: 'United State', value: 'US'}
+]
+const dzongkhagOptions = [
+  {label: 'Select Dzongkhag/Thomde'},
+  {label: 'Sarpang', value: 'sar'},
+  {label: 'Punakha', value: 'pun'},
+  {label: 'Paro', value: 'par'},
+   {label: 'Wangdue', value: 'sar'},
+  {label: 'Haa', value: 'pun'},
+  {label: 'Gasa', value: 'par'}
+]
+const GewogOptions = [
+  {label: 'Select Gewog'},
+  {label: 'Geleph', value: 'sar'},
+  {label: 'Dekling', value: 'pun'},
+  {label: 'Gawaling', value: 'par'},
+   {label: 'Pemaling', value: 'sar'},
+  {label: 'Haa', value: 'pun'},
+  {label: 'Gasa', value: 'par'}
+]
 
-  render() {
-    const {
-      firstName, lastName, age, country
-    } = this.state
-
-    return (
-      <View style={styles.container}>
-        <Form ref={this._onFormRef} onChange={this.onChange} onSubmit={this.onSubmit} validate={this.validate}>
-          <Form.Layout style={styles.row}>
-            <Form.Layout style={styles.columns}>
-              <Form.Field name="firstName" label="First name" style={styles.field}>
-                <Form.TextField value={firstName} />
-              </Form.Field>
-              <Form.Field name="lastName" label="Last name" style={styles.field}>
-                <Form.TextField value={lastName} />
-              </Form.Field>
-            </Form.Layout>
-          </Form.Layout>
-          <Form.Layout style={styles.row}>
-            <Form.Field name="age" label="Age" style={styles.ageField}>
-              <Form.TextField value={age} keyboardType='numeric'/>
-            </Form.Field>
-          </Form.Layout>
-          <Form.Layout style={styles.row}>
-            <Form.Field name="country" label="Country" style={styles.field}>
-              <Form.TextField value={country} />
-            </Form.Field>
-          </Form.Layout>
-        </Form>
-        <View style={styles.button}>
-          <Button
-            disabled={this.form && !this.form.canSubmit()}
-            onPress={() => this.form.validateAndSubmit()}
-            title="Submit"
-            color="#841584"
+const SchoolOptions = [
+  {label: 'Select Parent School'},
+  {label: 'Gelephu HSS', value: 'sar'},
+  {label: 'Dekling MSS', value: 'pun'},
+  {label: 'Sarpang HSS', value: 'par'},
+   {label: 'Perithang MSS', value: 'sar'},
+  {label: 'Haa HSS', value: 'pun'},
+  {label: 'Gasa HSS', value: 'par'}
+]
+const CenterOptions = [
+  {label: 'Select Name of Center'},
+  {label: 'Gelephu HSS', value: 'sar'},
+  {label: 'Dekling MSS', value: 'pun'},
+  {label: 'Sarpang HSS', value: 'par'},
+   {label: 'Perithang MSS', value: 'sar'},
+  {label: 'Haa HSS', value: 'pun'},
+  {label: 'Gasa HSS', value: 'par'}
+]
+const MonitoringTools = props => (
+  <Form>
+    <FieldsContainer >
+    <Fieldset label="Monitoring Tools" last>
+        <FormGroup>
+          <Label>Dzongkhag</Label>
+          <Select
+              
+              options={dzongkhagOptions}
+              placeholder="Dzongkhag/Thomde"
           />
-        </View>
-      </View>
-    )
-  }
+        </FormGroup>
+        <FormGroup>
+          <Label>Gewog</Label>
+          <Select
+              
+              options={GewogOptions}
+              placeholder="Gewog"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label>Parent School</Label>
+          <Select
+              
+              options={SchoolOptions}
+              placeholder="Parent School"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label>Center Name</Label>
+          <Select
+              
+              options={CenterOptions}
+              placeholder="Center Name"
+          />
+        </FormGroup>
+        
+        <FormGroup>
+          <Label>Center ID</Label>
+          <Input placeholder="Center ID" />
+        </FormGroup>
+        
+        
+      </Fieldset>
+    </FieldsContainer>
+    <ActionsContainer>
+      <Button icon="md-checkmark" iconPlacement="right">Save</Button>
+    </ActionsContainer>
+  </Form>
+)
 
-  _onFormRef = e => {
-    this.form = e
-  }
+export default MonitoringTools
 
-  onChange = (values) => {
-    this.setState(values)
-  }
-
-  onSubmit = (values) => {
-    Alert.alert('Submitted: ' + JSON.stringify(values))
-  }
-
-  validate = (values) => {
-    const ret = Object.keys(this.state).reduce((m, v) => {
-      if (!values[v] || !values[v].length) {
-        m[v] = Form.VALIDATION_RESULT.MISSING
-      }
-      return m
-    }, {})
-
-    if (!ret.age && isNaN(values.age)) {
-      ret.age = Form.VALIDATION_RESULT.INCORRECT
-    }
-
-    return ret
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: 100,
-    paddingHorizontal: 30
-  },
-  row: {
-    marginBottom: 20,
-  },
-  columns: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  field: {
-    marginRight: 10,
-  },
-  ageField: {
-    width: 60,
-  },
-  button: {
-    width: 80,
-    marginTop: 15,
-  },
-  error: {
-    marginTop: 10,
-  },
-  errorMsg: {
-    color: 'red'
-  }
-})

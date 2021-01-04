@@ -67,32 +67,10 @@ export function DrawerContent(props) {
                                 size={size}
                                 />
                             )}
-                            label="Monitoring"
-                            onPress={() => {props.navigation.navigate('MonitoringTools')}}
+                            label="share"
+                            onPress={() => {props.navigation.navigate('')}}
                         />
-                        <DrawerItem 
-                            icon={({color, size}) => (
-                                <Icon 
-                                name="account-check-outline" 
-                                color={color}
-                                size={size}
-                                />
-                            )}
-                            label="Attendance"
-                            onPress={() => {props.navigation.navigate('SupportScreen')}}
-                        />
-                        <DrawerItem 
-                            icon={({color, size}) => (
-                                <Icon 
-                                name="account-outline" 
-                                color={color}
-                                size={size}
-                                />
-                            )}
-                            label="Literacy Rate"
-                            onPress={() => {props.navigation.navigate('Profile')}}
-                        />
-
+                        
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
