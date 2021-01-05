@@ -17,7 +17,7 @@ import { COLORS, FONTS, SIZES, icons} from '../constants';
 const MonitoringTools= () => {
 
     // dummy data
-    const confirmStatus = "C"
+   
     const pendingStatus = "P"
 
     let categoriesData = [

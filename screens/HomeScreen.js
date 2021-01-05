@@ -11,10 +11,10 @@ import {
 import {useTheme} from '@react-navigation/native';
 
 import Swiper from 'react-native-swiper';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 
 
 const HomeScreen = ({navigation}) => {
