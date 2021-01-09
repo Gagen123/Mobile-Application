@@ -21,8 +21,10 @@ import MainTabScreen from './screens/MainTabScreen';
 import SupportScreen from './screens/SupportScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import MonitoringTools from './screens/MonitoringTools';
-
+import Literacy from './screens/Literacy';
+import Attendence from './screens/Attendence';
 import { AuthContext } from './components/context';
+
 
 import RootStackScreen from './screens/RootStackScreen';
 
@@ -160,6 +162,8 @@ const App = () => {
           <Drawer.Screen name="SupportScreen" component={SupportScreen} />
           <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
           <Drawer.Screen name="MonitoringTools" component={MonitoringTools} />
+          <Drawer.Screen name="Literacy" component={Literacy} />
+          <Drawer.Screen name="Attendence" component={Attendence} />
         </Drawer.Navigator>
       )
     :

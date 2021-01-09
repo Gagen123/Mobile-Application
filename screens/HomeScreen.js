@@ -56,14 +56,16 @@ const HomeScreen = ({navigation}) => {
 
       <View style={styles.cardsWrapper}>
       <View style={[styles.categoryContainer, {marginTop: 10}]}>
-        <TouchableOpacity style={styles.categoryBtn} onPress={() => {}}>
+      <TouchableOpacity style={styles.categoryBtn} onPress={() => navigation.navigate('Literacy')
+      }>
           <View style={styles.categoryIcon}>
             <Fontisto name="home" size={35} color="#FF6347" />
           </View>
           <Text style={styles.categoryBtnTxt}>Literacy Rate</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.categoryBtn} onPress={() => {}}>
+        <TouchableOpacity style={styles.categoryBtn} onPress={() => navigation.navigate('Attendence')
+      }>
           <View style={styles.categoryIcon}>
           <Fontisto name="home" size={35} color="#FF6347" />
           </View>

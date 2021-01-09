@@ -2,9 +2,9 @@ import React from 'react';
 import { 
     View, 
     Text, 
-    Icon,
+    
     TouchableOpacity, 
-     TextInput,
+     
     Platform,
     StyleSheet,
     ScrollView,
@@ -16,11 +16,10 @@ import {
     Button,
     FieldsContainer,
     Fieldset,
-    Form,
     FormGroup,
     Label,
-    Input,
-    Select
+    Select,
+    Input
   
   
   } from 'react-native-clean-form'
@@ -40,20 +39,9 @@ import {
     {label: 'Wangchukling', value: 'PUNA'}
   ]
 
-  const parentschoolOptions  = [
-    {label: 'Select Parent School', value: 'DK'},
-    {label: 'Sarpang HSS', value: 'SAR'},
-    {label: 'YHSS', value: 'THI'},
-    {label: 'Punakha HSS', value: 'PUNA'}
-  ]
-  const villageOptions  = [
-    {label: 'Select Village', value: 'DK'},
-    {label: 'Chuzom', value: 'SAR'},
-    {label: 'Sangayling', value: 'THI'},
-    {label: 'pemaling', value: 'PUNA'}
-  ]
+ 
 import * as Animatable from 'react-native-animatable';
-import { COLORS, FONTS, SIZES, icons} from '../constants';
+import { COLORS, FONTS} from '../constants';
 
 
     const SignInScreen = ({navigation}) => {
@@ -72,7 +60,7 @@ import { COLORS, FONTS, SIZES, icons} from '../constants';
       <View style={styles.container}>
           <StatusBar backgroundColor='#fff' barStyle="light-content"/>
         <View style={styles.header}>
-        <Text style={{ color: COLORS.primary, ...FONTS.h2 }}>Monitoring Tools</Text>
+        <Text style={{ color: COLORS.primary, ...FONTS.h2 }}>Literacy Information</Text>
         </View>
         <Animatable.View 
             animation="fadeInUpBig"
@@ -80,11 +68,11 @@ import { COLORS, FONTS, SIZES, icons} from '../constants';
         >
             <ScrollView>
        
-    <FieldsContainer >
+    
     <Fieldset>
        
         <FormGroup>
-          <Label style={styles.action}>Dzongkhag/Thromde</Label>
+          <Label >Dzongkhag/Thromde</Label>
           <Select
               name="village"
               label="village"
@@ -103,93 +91,34 @@ import { COLORS, FONTS, SIZES, icons} from '../constants';
           />
         </FormGroup>
         <FormGroup>
-          <Label>Parent School</Label>
-          <Select
-              name="village"
-              label="village"
-              options={parentschoolOptions}
-             
-          />
+          <Label>Number of Male:</Label>
+          <Input placeholder="Male" />
         </FormGroup>
-
-          <FormGroup>
-          <Label>Village</Label>
-          <Select
-              name="Village"
-              label="village"
-              options={villageOptions}
-             
-          />
+        <FormGroup>
+          <Label>Number of Female:</Label>
+          <Input placeholder="Female" />
+        </FormGroup>
+        <FormGroup>
+          <Label>Total Number:</Label>
+          <Input placeholder="Total" />
         </FormGroup>
         
+       
       </Fieldset>
-    </FieldsContainer>
+  
     
- 
-
-
-            <View style={styles.button}>
-                              
-               <TouchableOpacity
-                    onPress={() => {}}
-                    style={[styles.link, {
-                        borderColor: '#111',
-                        borderWidth: 0.1,
-                        marginTop: 0
-                    }]}
+    <TouchableOpacity
+                    onPress={() =>{}}            
                 >
-                    <Text style={[styles.textlink, {
-                        color: '#40464a',
-                        marginLeft: 20,
-                        fontSize:15,
-                    }]}>A. Planning</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() =>{}}
-                    style={[styles.link, {
-                        borderColor: '#111',
-                        borderWidth: 0.1,
-                        marginTop: 15,
-                    }]}
-                >
-                    <Text style={[styles.textlink, {
-                        color: '#40464a',
-                        marginLeft: 20,
-                        fontSize:15,
-                    }]}>B. Classroom Management,</Text> 
-                    
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() =>{}}
-                    style={[styles.link, {
-                        borderColor: '#111',
-                        borderWidth: 0.1,
-                        marginTop: 15,
-                        
-                    }]}
-                >
-                    <Text style={[styles.textlink, {
-                        color: '#40464a',
-                        marginLeft: 20,
-                        fontSize:15,
-                    }]}>C. Assessment And kill Developent</Text>
-                </TouchableOpacity>
-                
-                
-            </View>
-           
-          
-            </ScrollView>
-            <TouchableOpacity
-                    onPress={() =>{}}
-                
-                >
-            <ActionsContainer>
-             
-            <Button icon="md-checkmark" iconPlacement="right">Save</Button>
-            
-            </ActionsContainer>
+        <Button icon="md-checkmark" iconPlacement="right">Save</Button>
+        
             </TouchableOpacity>
+            
+ 
+        
+       
+            </ScrollView>
+          
         </Animatable.View>
       </View>
     );

@@ -2,13 +2,14 @@ import React from 'react';
 import { 
     View, 
     Text, 
-    Icon,
     TouchableOpacity, 
-     TextInput,
-    Platform,
+     Platform,
     StyleSheet,
     ScrollView,
     StatusBar,
+
+  TextInput,
+  
  
 } from 'react-native';
 import {
@@ -16,7 +17,6 @@ import {
     Button,
     FieldsContainer,
     Fieldset,
-    Form,
     FormGroup,
     Label,
     Input,
@@ -25,7 +25,7 @@ import {
   
   } from 'react-native-clean-form'
 
-
+ 
   const DzonkhagOptions  = [
     {label: 'Select Dzongkhag/Thromde', value: 'DK'},
     {label: 'Sarpang', value: 'SAR'},
@@ -40,18 +40,13 @@ import {
     {label: 'Wangchukling', value: 'PUNA'}
   ]
 
-  const parentschoolOptions  = [
-    {label: 'Select Parent School', value: 'DK'},
-    {label: 'Sarpang HSS', value: 'SAR'},
-    {label: 'YHSS', value: 'THI'},
-    {label: 'Punakha HSS', value: 'PUNA'}
+  const CenterOptions  = [
+    {label: 'Select Center', value: 'DK'},
+    {label: 'A', value: 'SAR'},
+    {label: 'B', value: 'THI'},
+    {label: 'C', value: 'PUNA'}
   ]
-  const villageOptions  = [
-    {label: 'Select Village', value: 'DK'},
-    {label: 'Chuzom', value: 'SAR'},
-    {label: 'Sangayling', value: 'THI'},
-    {label: 'pemaling', value: 'PUNA'}
-  ]
+  
 import * as Animatable from 'react-native-animatable';
 import { COLORS, FONTS, SIZES, icons} from '../constants';
 
@@ -72,7 +67,7 @@ import { COLORS, FONTS, SIZES, icons} from '../constants';
       <View style={styles.container}>
           <StatusBar backgroundColor='#fff' barStyle="light-content"/>
         <View style={styles.header}>
-        <Text style={{ color: COLORS.primary, ...FONTS.h2 }}>Monitoring Tools</Text>
+        <Text style={{ color: COLORS.primary, ...FONTS.h2 }}>Learner Attendance</Text>
         </View>
         <Animatable.View 
             animation="fadeInUpBig"
@@ -84,7 +79,7 @@ import { COLORS, FONTS, SIZES, icons} from '../constants';
     <Fieldset>
        
         <FormGroup>
-          <Label style={styles.action}>Dzongkhag/Thromde</Label>
+          <Text>Dzongkhag/Thromde : </Text>
           <Select
               name="village"
               label="village"
@@ -94,7 +89,7 @@ import { COLORS, FONTS, SIZES, icons} from '../constants';
         </FormGroup>
 
         <FormGroup>
-          <Label>Gewog/Demkhong</Label>
+          <Text>Gewog/Demkhong :   </Text>
           <Select
               name="village"
               label="village"
@@ -103,83 +98,59 @@ import { COLORS, FONTS, SIZES, icons} from '../constants';
           />
         </FormGroup>
         <FormGroup>
-          <Label>Parent School</Label>
+          <Text>Center Name :             </Text>
           <Select
-              name="village"
-              label="village"
-              options={parentschoolOptions}
+              name="Center"
+              label="Center"
+              options={CenterOptions}
              
           />
         </FormGroup>
 
-          <FormGroup>
-          <Label>Village</Label>
-          <Select
-              name="Village"
-              label="village"
-              options={villageOptions}
-             
+        <FormGroup>
+          <Text > Center id : </Text>
+          <TextInput
+            placeholder="Full-name"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+          
           />
         </FormGroup>
         
+        
+        
       </Fieldset>
     </FieldsContainer>
+  
+       <View style={styles.action}>
+        <Text style={{color:"#777777"}}>Name:</Text>
+       
+           <TextInput
+            placeholder="Full-name"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+             
+            ]}
+          />
+        </View>  
+        <View style={styles.action}>
+        <Text style={{color:"#777777"}}>Name:</Text>
+       
+           <TextInput
+            placeholder="Full-name"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+             
+            ]}
+          />
+        </View>     
+      
     
- 
-
-
-            <View style={styles.button}>
-                              
-               <TouchableOpacity
-                    onPress={() => {}}
-                    style={[styles.link, {
-                        borderColor: '#111',
-                        borderWidth: 0.1,
-                        marginTop: 0
-                    }]}
-                >
-                    <Text style={[styles.textlink, {
-                        color: '#40464a',
-                        marginLeft: 20,
-                        fontSize:15,
-                    }]}>A. Planning</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() =>{}}
-                    style={[styles.link, {
-                        borderColor: '#111',
-                        borderWidth: 0.1,
-                        marginTop: 15,
-                    }]}
-                >
-                    <Text style={[styles.textlink, {
-                        color: '#40464a',
-                        marginLeft: 20,
-                        fontSize:15,
-                    }]}>B. Classroom Management,</Text> 
-                    
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() =>{}}
-                    style={[styles.link, {
-                        borderColor: '#111',
-                        borderWidth: 0.1,
-                        marginTop: 15,
-                        
-                    }]}
-                >
-                    <Text style={[styles.textlink, {
-                        color: '#40464a',
-                        marginLeft: 20,
-                        fontSize:15,
-                    }]}>C. Assessment And kill Developent</Text>
-                </TouchableOpacity>
-                
-                
-            </View>
-           
-          
-            </ScrollView>
+         </ScrollView>
             <TouchableOpacity
                     onPress={() =>{}}
                 
@@ -231,7 +202,8 @@ const styles = StyleSheet.create({
         marginTop: 10,
         borderBottomWidth: 1,
         borderBottomColor: '#f2f2f2',
-        paddingBottom: 5
+        paddingBottom: 5,
+        color:'#111',
     },
     textInput: {
         flex: 1,
@@ -239,7 +211,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         color: '#05375a',
         borderColor:'#05375a',
-        borderWidth: 0.5,
+        borderWidth: 0,
         borderRadius: 8,
         height:42,
     
@@ -268,5 +240,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold'
     },
+    placeholder:{
+    fontSize:10,
+    },
+ 
    
+
   });

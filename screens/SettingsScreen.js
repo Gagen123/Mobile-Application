@@ -75,3 +75,72 @@ const SettingsScreen = props => (
 
 export default SettingsScreen
 
+{/*                
+            <Text style={styles.text_footer}>Username</Text>
+            <View style={styles.action}>
+               
+                <TextInput 
+                    placeholder="Your Username"
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    
+                />
+                
+            </View>
+            <Text style={styles.text_footer}>Username</Text>
+            <View style={styles.action}>
+               
+                <TextInput 
+                    placeholder="Your Username"
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    
+                />
+                
+            </View> */}
+            {/* <Text style={styles.text_footer}>Username</Text>
+            <View style={styles.action}>
+               
+                <TextInput 
+                    placeholder="Your Username"
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    
+                />
+                
+            </View>
+
+            <Text style={styles.text_footer}>Username</Text>
+            <View style={styles.action}>
+               
+                <TextInput 
+                    placeholder="Your Username"
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    
+                />
+                
+            </View>
+            <Text style={styles.text_footer}>Username</Text>
+            <View style={styles.action}>
+               
+                <TextInput 
+                    placeholder="Your Username"
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    
+                />
+                
+            </View>
+            <Text style={styles.text_footer}>Username</Text>
+            <View style={styles.action}>
+               
+                <TextInput 
+                    placeholder="Your Username"
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                        
+                    
+                />
+                
+            </View> */}
